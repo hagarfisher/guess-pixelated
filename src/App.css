@@ -1,38 +1,133 @@
-.App {
-  text-align: center;
+:root {
+  --primaryLightColor: #ffe2e2;
+  --primaryColor: #8785a2;
+  --primaryDarkColor: #ffc7c7;
+  --mainWhite: #fff;
+  --offWhite: #f7f7f7;
+  --mainBackground: #f6f6f6;
+  --mainOverlay: rgba(35, 10, 36, 0.4);
+  --mainBlack: #222;
+  --mainGrey: #ececec;
+  --darkGrey: #afafaf;
+  --mainRed: #bd0303;
+  --mainTransition: all 0.3s linear;
+  --mainSpacing: 0.3rem;
+  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+  --mainBorderRadius: 0.25rem;
+  --smallWidth: 85vw;
+  --maxWidth: 40rem;
+  --fullWidth: 1170px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* max-height: 100vh; */
+  /* overflow: auto; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  height: 93vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: var(--mainBlack);
+  background-color: var(--primaryColor);
+  line-height: 1.4;
+  font-size: 1rem;
+  font-weight: 300;
+  overflow-y: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 2vh;
+  margin-top: 1vh;
 }
 
-.App-link {
-  color: #61dafb;
+.title {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  color: var(--primaryColor);
+  letter-spacing: var(--mainSpacing);
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.title-container {
+  width: 100%;
+  background-color: var(--primaryLightColor);
+  display: flex;
+  justify-content: center;
+  padding-top: 1.5vh;
+  padding-bottom: 1.5vh;
+}
+/* .canvas-container {
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  border: none;
+  border-radius: var(--mainBorderRadius);
+  background-color: var(--mainBackground);
+} */
+input {
+  border: none;
+  border-color: transparent;
+  background: var(--mainBackground);
+  border-radius: var(--mainBorderRadius);
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.input-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 1vh;
+}
+.button {
+  text-transform: uppercase;
+  color: var(--primaryColor);
+  border: 2px solid var(--primaryLightColor);
+  padding: 0.5rem 0.8rem;
+  transition: var(--mainTransition);
+  cursor: pointer;
+  font-size: 1.2rem;
+  text-align: center;
+  background: var(--primaryLightColor);
+  border-radius: var(--mainBorderRadius);
+}
+.button:hover {
+  background: var(--primaryDarkColor);
+}
+
+.message-container {
+  margin-top: 25vh;
+  height: 25vh;
+  width: 29rem;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  border-radius: 2rem;
+  background-color: var(--primaryLightColor);
+  transition: var(--mainTransition);
+}
+
+.message {
+  font-size: 1.5rem;
+  text-transform: capitalize;
+  letter-spacing: 0.1rem;
+}
+
+.game-info {
+  display: flex;
+  gap: 3vw;
 }
