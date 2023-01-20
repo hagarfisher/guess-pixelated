@@ -1,56 +1,36 @@
 import React, { useRef, useEffect, useState } from "react";
 import image from "../assets/The-Dark-Knight.jpeg";
 
+import { pixelateImage, resizeImage } from "../utils/imageUtils";
+
 type CanvasProps = {
-  pixelateImage: Function;
+  pixelationFactor: number;
   imgSrc: string;
 };
 
-const Canvas = ({ pixelateImage, imgSrc }: CanvasProps) => {
+const Canvas = ({ pixelationFactor, imgSrc }: CanvasProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  // const originalImageRef = useRef<HTMLImageElement>(null);
-  const [pixelationFactor, setPixelationFactor] = useState("0");
 
   useEffect(() => {
     if (canvasRef.current) {
       const canvas = canvasRef.current;
-      // const currentImg = originalImageRef.current;
       const imageElement = new Image();
-      console.log(imgSrc);
       imageElement.src = imgSrc;
       imageElement.crossOrigin = "Anonymous";
       const context = canvas.getContext("2d");
 
       function pixelate() {
-        pixelateImage(
-          canvas,
-          context,
-          imageElement,
-          parseInt(pixelationFactor)
-        );
+        resizeImage(imageElement);
+        pixelateImage(canvas, context, imageElement, pixelationFactor);
       }
       imageElement.onload = pixelate;
-
-      // if (!currentImg) {
-      //   return;
-      // }
-      // currentImg.addEventListener("load", pixelate);
-      // return () => {
-      //   currentImg.removeEventListener("load", pixelate);
-      // };
     }
-  }, [imgSrc, pixelationFactor, pixelateImage]);
+  }, [imgSrc, pixelationFactor]);
 
   return (
     <>
       <div>
         <canvas ref={canvasRef} />
-        <input
-          value={pixelationFactor}
-          onChange={(e) => {
-            setPixelationFactor(e.target.value);
-          }}
-        />
       </div>
     </>
   );
