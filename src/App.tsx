@@ -1,6 +1,6 @@
 import "./App.css";
 import Canvas from "./components/Canvas";
-import { imgSources } from "./assets/imgSorces";
+import { imgSources } from "./assets/imgSources";
 import { useEffect, useState } from "react";
 import EndRoundMessage from "./components/EndRoundMessage";
 
