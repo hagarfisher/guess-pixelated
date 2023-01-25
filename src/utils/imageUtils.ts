@@ -11,7 +11,6 @@ export const pixelateImage = (
   const { height: originalHeight, width: originalWidth } = originalImage;
   canvas.width = originalWidth;
   canvas.height = originalHeight;
-  context.drawImage(originalImage, 0, 0, originalWidth, originalHeight);
   const originalImagePixelArray = getImagePixelList(context, originalImage, {
     originalWidth,
     originalHeight,
