@@ -28,7 +28,7 @@ export const pixelateImage = (
           ${originalImagePixelArray[pixelIndexPosition + 3]}
         )`;
 
-        // fill a rectangle of pixalation factor size with the color of the sample pixel
+        // fill a rectangle of pixelation factor size with the color of the sample pixel
         context.fillStyle = rectangleColor;
         const rectangleWidth = pixelationFactor;
         const rectangleHeight = pixelationFactor;
